@@ -16,7 +16,7 @@ import (
 	"github.com/dicedb/dice/wire"
 )
 
-//nolint: stylecheck
+// nolint: stylecheck
 const INFINITE_EXPIRATION = int64(-1)
 
 type Cmd struct {
@@ -150,7 +150,10 @@ func errWrongArgumentCount(command string) error {
 	return fmt.Errorf("wrong number of arguments for '%s' command", strings.ToUpper(command))
 }
 
-var errUnknownObjectType = errors.New("unknown object type")
+var (
+	errUnknownObjectType = errors.New("unknown object type")
+	errIntegerOutOfRange = errors.New("integer out of range")
+)
 
 //nolint:unparam
 func errInvalidSyntax(command string) error {
